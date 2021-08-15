@@ -21,10 +21,6 @@ const Orders = ({
 		console.log(dropmenu);
 	};
 
-	// useEffect(() => {
-	// 	setDropmenu(!display);
-	// }, [dropmenu]);
-
 	return (
 		<div className="container border-0 rounded-3xl bg-white pb-10">
 			<div className="flex flex-wrap items-center justify-between px-4 border-b-2 hover:shadow-lg ">
@@ -38,19 +34,25 @@ const Orders = ({
 				</div>
 				<div className="">
 					<h1 className="text-md text-black mb-4 font-semibold">{name}</h1>
-					<p className="break-words text-md text-gray-800">{place}</p>
+					<p className="break-normal text-md text-gray-800">{place}</p>
 				</div>
 				<div className=" text-black text-xl font-semibold flex gap-8">
 					<span>{price}</span>
 					<span className=" text-gray-500 text-xl ">{quantity}</span>
 				</div>
 				<div className="relative flex">
+					<button className={`border-2 ${statusColor} px-4 py-2 font-medium mr-6 `}>
+						{status}
+					</button>
 					<button
 						onClick={() => {
 							handleState();
-						}}
-						className={`border-2 ${statusColor} px-4 py-2 font-medium mr-6 `}>
-						{status}
+						}}>
+						<img
+							src={require('../assets/menu.svg').default}
+							alt="Menu"
+							className=""
+						/>
 					</button>
 					{dropmenu && (
 						<div className="absolute -inset-x-10 inset-y-4  z-20">
@@ -63,8 +65,6 @@ const Orders = ({
 							</div>
 						</div>
 					)}
-
-					<img src={require('../assets/menu.svg').default} alt="Menu" className="" />
 				</div>
 			</div>
 		</div>
